@@ -1,0 +1,63 @@
+<html>
+    <!--描述网页信息-->
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>iOS与H5的交互</title>
+ 		<style>
+            *{
+                font-size: 45px;
+            }
+        
+            .btn{
+                height:120px; width:100%; padding: 0px 10px; background-color: #f64646; border: solid 1px #f64646; border-radius:6px; font-size: 1em; color: white
+            }
+ 		</style>
+        
+        <script>
+        
+            //JS响应方法列表
+            function btnClick1() {
+                window.webkit.messageHandlers.Share.postMessage(@"啦啦，我是分享的内容，这里可以是Json")
+            }
+
+            function btnClick2() {
+                window.webkit.messageHandlers.Shake.postMessage('哈哈哈哈哈哈哈')
+            }
+
+            function btnClick3() {
+                window.webkit.messageHandlers.Photo.postMessage(['1111', 'Hello Hello !!!'])
+            }
+
+        </script>
+        
+        
+    </head>
+
+    <!--网页具体内容-->
+    <body>
+        <br/>
+
+		<div>
+			<label style = "text-align:center">iOS与H5的交互</label>
+		</div>
+		<br/>
+
+        <div id="share"></div>
+		<div>
+			<button class="btn" type="button" onclick="btnClick1()">分享按钮</button>
+		</div>
+		<br/>
+        
+        <div id="shake"></div>
+		<div>
+			<button class="btn" type="button" onclick="btnClick2()">摇一摇按钮</button>
+		</div>
+		<br/>
+        
+        <div id="photo"></div>
+		<div>
+			<button class="btn" type="button" onclick="btnClick3()">打开系统相册按钮</button>
+		</div>
+
+    </body>
+</html>
